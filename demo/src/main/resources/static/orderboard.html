@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Vanguar - Order Board</title>
-    <link rel="stylesheet" href="/css/main.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css"/>
 </head>
 <body>
 <noscript>
@@ -15,7 +23,7 @@
         <h1 class="title">Type your username</h1>
         <form id="usernameForm" name="usernameForm">
             <div class="form-group">
-                <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+                <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control"/>
             </div>
             <div class="form-group">
                 <button type="submit" class="accent username-submit">Start Ordering</button>
@@ -27,7 +35,14 @@
 <div id="chat-page" class="hidden">
     <div class="chat-container">
         <div class="chat-header">
-            <h2>Lunch Order Board</h2>
+            <div style="display: inline-block;">
+                <h2>Lunch Order Board</h2>
+            </div>
+            <div style="display: inline-block;">
+                <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModal">
+                    View Menu
+                </button>
+            </div>
         </div>
         <div class="connecting">
             Connecting...
@@ -38,14 +53,127 @@
         <form id="messageForm" name="messageForm">
             <div class="form-group">
                 <div class="input-group clearfix">
-                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                    <input type="text" id="message" placeholder="e.g. L6, L42" autocomplete="off" class="form-control"/>
                     <button type="submit" class="primary">Send</button>
+                    <!--                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">-->
+                    <!--                        Menu-->
+                    <!--                    </button>-->
                 </div>
             </div>
         </form>
     </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item">L01. 虾仁炒蛋 $8.75</li>
+                    <li class="list-group-item">L02. 鱼香虾 $8.75</li>
+                    <li class="list-group-item">L03. 咖喱虾 $8.75</li>
+                    <li class="list-group-item">L04. 酸菜鱿鱼 $8.75</li>
+                    <li class="list-group-item">L05. 芹菜鱿鱼 $8.75</li>
+                    <li class="list-group-item">L06. 回锅鱼片 $8.75</li>
+                    <li class="list-group-item">L07. 水煮鱼片 $8.75</li>
+                    <li class="list-group-item">L08. 川辣鱼片 $8.75</li>
+                    <li class="list-group-item">L09. 雪菜鱼片 $8.75</li>
+                    <li class="list-group-item">L10. 豆花鱼 $8.75</li>
+                    <li class="list-group-item">L11. 宫保鸡丁 $8.75</li>
+                    <li class="list-group-item">L12. 辣子鸡丁 $8.75</li>
+                    <li class="list-group-item">L13. 左宗鸡 $8.75</li>
+                    <li class="list-group-item">L14. 咖喱鸡 $8.75</li>
+                    <li class="list-group-item">L15. 芝麻鸡 $8.75</li>
+                    <li class="list-group-item">L16. 三杯鸡 $8.75</li>
+                    <li class="list-group-item">L17. 炸鸡腿 $8.75</li>
+                    <li class="list-group-item">L18. 咖喱牛 $8.75</li>
+                    <li class="list-group-item">L19. 芥兰牛 $8.75</li>
+                    <li class="list-group-item">L20. 葱爆牛 $8.75</li>
+                    <li class="list-group-item">L22. 干锅牛 $8.75</li>
+                    <li class="list-group-item">L22. 红烧牛肉 $8.75</li>
+                    <li class="list-group-item">L23. 牛肉烧土豆 $8.75</li>
+                    <li class="list-group-item">L24. 小椒牛肉丝 $8.75</li>
+                    <li class="list-group-item">L25. 台式炒高丽 $8.75</li>
+                    <li class="list-group-item">L26. 鱼香肉丝 $8.75</li>
+                    <li class="list-group-item">L27. 笋尖豆干肉丝 $8.75</li>
+                    <li class="list-group-item">L28. 小椒土豆肉丝 $8.75</li>
+                    <li class="list-group-item">L29. 小辣椒炒肚片 $8.75</li>
+                    <li class="list-group-item">L30. 小辣椒炒大肠 $8.75</li>
+                    <li class="list-group-item">L31. 小辣椒猪肉丝 $8.75</li>
+                    <li class="list-group-item">L32. 木耳肉丝 $8.75</li>
+                    <li class="list-group-item">L33. 酸菜炒大肠 $8.75</li>
+                    <li class="list-group-item">L34. 酸菜炒肚片 $8.75</li>
+                    <li class="list-group-item">L35. 京都排骨 $8.75</li>
+                    <li class="list-group-item">L36. 红烧排骨 $8.75</li>
+                    <li class="list-group-item">L37. 蒜苗五花肉 $8.75</li>
+                    <li class="list-group-item">L38. 回锅肉 $8.75</li>
+                    <li class="list-group-item">L39. 红烧肉 $8.75</li>
+                    <li class="list-group-item">L40. 酸豆角肉末 $8.75</li>
+                    <li class="list-group-item">L41. 干豆角熏肉 $8.75</li>
+                    <li class="list-group-item">L42. 蚂蚁上树 $8.75</li>
+                    <li class="list-group-item">L43. 五更长旺 $8.75</li>
+                    <li class="list-group-item">L43. 五更长旺 $8.75</li>
+                    <li class="list-group-item"> L44. 火爆腰花 $8.75</li>
+                    <li class="list-group-item">L45.中芹香干 $8.75</li>
+                    <li class="list-group-item">
+                        L46. 麻婆豆腐 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L47. 鱼香茄子 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L48. 四季豆烧茄子 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L49. 雪菜百页毛豆 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L50. 清炒四季豆 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L51. 清炒上海菜 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L52. 清炒苦瓜 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L53. 干锅白菜花 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L54. 干锅高丽菜 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L55. 干锅土豆 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L56. 醋溜土豆丝 $8.75
+                    </li>
+                    <li class="list-group-item">
+                        L57. 番茄炒蛋 $8.75
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="/js/main.js"></script>

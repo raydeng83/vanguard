@@ -28,6 +28,7 @@ public class BeApplication implements CommandLineRunner {
         user1.setUsername("j");
         user1.setEmail("JAdams@example.com");
         user1.setPhone("999-999-9999");
+        user1.setSubtitle("Full Stack Developer");
         user1.setDescription("This is a user description for John Adams.");
         userService.createUser(user1);
 
@@ -37,6 +38,7 @@ public class BeApplication implements CommandLineRunner {
         user2.setUsername("Admin");
         user2.setEmail("admin@example.com");
         user2.setPhone("888-888-8888");
+        user2.setSubtitle("IAM Engineer");
         user2.setDescription("This is a user description for Admin.");
         userService.createUser(user2);
 

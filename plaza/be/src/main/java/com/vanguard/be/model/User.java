@@ -15,6 +15,7 @@ public class User implements Serializable {
     private String username;
     private String firstName;
     private String lastName;
+    private String subtitle;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -88,5 +89,13 @@ public class User implements Serializable {
 
     public void setUserImage(MultipartFile userImage) {
         this.userImage = userImage;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 }

@@ -1,54 +1,17 @@
 <div class="section" style="width: 80%; margin: auto;">
-<div class="columns">
-    <div class="column">
-        <app-profile-card></app-profile-card>
+    <div class="columns">
+        <div *ngFor="let user of users;" class="column is-one-third" >
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <article class="tile is-child notification is-info">
+                        <p class="title">{{user.firstName}} {{user.lastName}}</p>
+                        <p class="subtitle">{{user.subtitle}}</p>
+                        <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/640x480.png">
+                        </figure>
+                    </article>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-</div>
-<div class="columns">
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-</div>
-<div class="columns">
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-    <div class="column">
-        <app-profile-card></app-profile-card>
-    </div>
-</div>
-
 </div>

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxGalleryModule } from 'ngx-gallery';
 import {HttpClientModule} from '@angular/common/http';
-
+import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -24,7 +24,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     BrowserAnimationsModule,
     NgxGalleryModule,
     HttpClientModule,
-    AppRoutingModule
+    FormsModule
   ],
   providers: [
         UserService

@@ -30,13 +30,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(User user) {
-
+    public User saveUser(User user) {
         User localUser = userRepository.findByUsername(user.getUsername());
 
         if (localUser != null) {
-            LOG.info("User with username {} already exist. Nothing will be done. ", user.getUsername());
+            user.setId(localUser.getId());
+            LOG.info("User with username {} already exist. Update user information. ", user.getUsername());
+            user = userRepository.save(user);
         } else {
+            LOG.info("Create user {}. ", user.getUsername());
             user = userRepository.save(user);
         }
 

@@ -1,56 +1,64 @@
 <div class="section" style="width: 70%; margin:auto;">
-    <div class="field">
-        <label class="label">First Name</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="First Name">
-        </div>
-    </div>
-
-    <div class="field">
-        <label class="label">Last Name</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="Last Name">
-        </div>
-    </div>
-    <div class="field">
-        <label class="label">Title</label>
-        <div class="control has-icons-left">
-            <input class="input" type="text" placeholder="Your Title">
-            <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-            </span>
-        </div>
-    </div>
-    <div class="field">
-        <label class="label">Email</label>
-        <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="Your Email">
-            <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-            </span>
-        </div>
-    </div>
-    <div class="field">
-        <label class="label">Phone</label>
-        <div class="control has-icons-left">
-            <input class="input" type="text" placeholder="Phone #">
-            <span class="icon is-small is-left">
-                <i class="fas fa-phone"></i>
-            </span>
-        </div>
-    </div>
-    <div class="field">
-            <label class="label">Description</label>
+    <form (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label class="label">*First Name</label>
             <div class="control">
-              <textarea class="textarea" placeholder="Describe a bit about yourself such as work, hobby and etc."></textarea>
+                <input class="input" type="text" placeholder="First Name" id="firstName" name="firstName"
+                    [(ngModel)]="user.firstName" required="required">
             </div>
-          </div>
-    <div class="field is-grouped">
-        <div class="control">
-            <button class="button is-link">Submit</button>
         </div>
-        <div class="control">
-            <button class="button is-link is-light">Cancel</button>
+
+        <div class="field">
+            <label class="label">*Last Name</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Last Name" id="lastName" name="lastName"
+                    [(ngModel)]="user.lastName" required="required">
+            </div>
         </div>
-    </div>
+        <div class="field">
+            <label class="label">*Title</label>
+            <div class="control has-icons-left">
+                <input class="input" type="text" placeholder="Your Title" id="subtitle" name="subtitle"
+                    [(ngModel)]="user.subtitle" required="required">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">*Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Your Email" id="email" name="email"
+                    [(ngModel)]="user.email" required="required">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">*Phone</label>
+            <div class="control has-icons-left">
+                <input class="input" type="text" placeholder="Phone #" id="phone" name="phone" [(ngModel)]="user.phone"
+                    required="required">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-phone"></i>
+                </span>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">*Description</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="Describe a bit about yourself such as work, hobby and etc."
+                    id="description" name="description" [(ngModel)]="user.description" required="required"></textarea>
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+            </div>
+        </div>
+    </form>
 </div>

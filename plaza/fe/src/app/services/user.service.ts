@@ -20,12 +20,12 @@ export class UserService {
     return this.http.get(url);
   }
 
-  // create(user) {
-  //   const url = this.serverPath + '/user/create';
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({'Content-Type': 'application/json'})
-  //   };
+  save(user) {
+    const url = this.serverPath + '/user/save';
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
 
-  //   return this.http.post(url, JSON.stringify(user), httpOptions);
-  // }
+    return this.http.post(url, JSON.stringify(user), httpOptions);
+  }
 }

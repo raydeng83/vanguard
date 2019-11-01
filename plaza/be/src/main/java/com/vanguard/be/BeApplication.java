@@ -30,7 +30,7 @@ public class BeApplication implements CommandLineRunner {
         user1.setPhone("999-999-9999");
         user1.setSubtitle("Full Stack Developer");
         user1.setDescription("This is a user description for John Adams.");
-        userService.createUser(user1);
+        userService.saveUser(user1);
 
         User user2 = new User();
         user2.setFirstName("Admin");
@@ -40,7 +40,7 @@ public class BeApplication implements CommandLineRunner {
         user2.setPhone("888-888-8888");
         user2.setSubtitle("IAM Engineer");
         user2.setDescription("This is a user description for Admin.");
-        userService.createUser(user2);
+        userService.saveUser(user2);
 
     }
 

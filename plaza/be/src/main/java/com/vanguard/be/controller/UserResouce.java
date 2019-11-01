@@ -26,9 +26,9 @@ public class UserResouce {
         return userList;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public User createUser(@RequestBody User user) {
-        user = userService.createUser(user);
+        user = userService.saveUser(user);
 
         return user;
     }

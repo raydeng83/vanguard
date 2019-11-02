@@ -27,6 +27,8 @@ public class User implements Serializable {
     @Transient
     private MultipartFile userImage;
 
+    private String imageName;
+
     public Long getId() {
         return id;
     }
@@ -97,5 +99,13 @@ public class User implements Serializable {
 
     public void setSubtitle(String subtitle) {
         this.subtitle = subtitle;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }

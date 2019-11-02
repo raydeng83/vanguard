@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HomeComponent implements OnInit {
     private serverPath = AppConst.serverPath;
+    private colors = this.shuffle(AppConst.colors);
     private users;
 
     constructor(private userService: UserService) {
@@ -27,5 +28,24 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
       this.getAllUsers();
+    }
+
+    shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+    
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+    
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+    
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+    
+      return array;
     }
 }

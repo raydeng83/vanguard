@@ -1,13 +1,13 @@
 <div class="section" style="width: 80%; margin: auto;">
     <div class="columns">
-        <div *ngFor="let user of users;" class="column is-one-third" >
+        <div *ngFor="let user of users; index as i" class="column is-one-third" >
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
-                    <article class="tile is-child notification is-info">
+                    <article class="tile is-child notification" [ngClass]="colors[i%6]">
                         <p class="title">{{user.firstName}} {{user.lastName}}</p>
                         <p class="subtitle">{{user.subtitle}}</p>
                         <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/640x480.png">
+                            <img src="{{serverPath}}/image/photo/{{user.imageName}}">
                         </figure>
                     </article>
                 </div>

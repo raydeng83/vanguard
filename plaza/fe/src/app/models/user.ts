@@ -7,4 +7,5 @@ export class User {
     public description: string;
     public phone: string;
     public subtitle: string;
+    public imageName: string;
   }

@@ -50,35 +50,8 @@ public class ImageResource {
             stream.write(bytes);
             stream.close();
 
-            return new ResponseEntity("Upload Success!", HttpStatus.OK);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity("Upload Failed!", HttpStatus.BAD_REQUEST);
-        }
-
-    }
-
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity updateImagePost(
-            @RequestParam("username") String username,
-            HttpServletResponse response, HttpServletRequest request
-    ) {
-        try {
-            User user = userService.getUserByUsername(username);
-            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-            Iterator<String> it = multipartRequest.getFileNames();
-            MultipartFile multipartFile = multipartRequest.getFile(it.next());
-            String fileName = username+".png";
-            imageName = fileName;
-
-            Files.delete(Paths.get("src/main/resources/static/image/photo/"+fileName));
-
-            byte[] bytes = multipartFile.getBytes();
-            BufferedOutputStream stream =
-                    new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/photo/" + fileName)));
-            stream.write(bytes);
-            stream.close();
+            user.setImageName(imageName);
+            userService.saveUser(user);
 
             return new ResponseEntity("Upload Success!", HttpStatus.OK);
 
@@ -88,4 +61,37 @@ public class ImageResource {
         }
 
     }
+
+//    @RequestMapping(value = "/update", method = RequestMethod.POST)
+//    public ResponseEntity updateImagePost(
+//            @RequestParam("username") String username,
+//            HttpServletResponse response, HttpServletRequest request
+//    ) {
+//        try {
+//            User user = userService.getUserByUsername(username);
+//            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+//            Iterator<String> it = multipartRequest.getFileNames();
+//            MultipartFile multipartFile = multipartRequest.getFile(it.next());
+//            String fileName = username+".png";
+//            imageName = fileName;
+//
+//            Files.delete(Paths.get("src/main/resources/static/image/photo/"+fileName));
+//
+//            byte[] bytes = multipartFile.getBytes();
+//            BufferedOutputStream stream =
+//                    new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/photo/" + fileName)));
+//            stream.write(bytes);
+//            stream.close();
+//
+//            user.setImageName("imageName");
+//            userService.saveUser(user);
+//
+//            return new ResponseEntity("Upload Success!", HttpStatus.OK);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return new ResponseEntity("Upload Failed!", HttpStatus.BAD_REQUEST);
+//        }
+//
+//    }
 }

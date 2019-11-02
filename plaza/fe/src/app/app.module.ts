@@ -16,6 +16,7 @@ import { UserService } from './services/user.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ImageUpdateComponent } from './components/image-update/image-update.component';
 import { ImageService } from './services/image.service';
+import { PersonalComponent } from './components/personal/personal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ImageService } from './services/image.service';
     NavBarComponent,
     HomeComponent,
     ProfileComponent,
-    ImageUpdateComponent
+    ImageUpdateComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,

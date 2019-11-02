@@ -1,0 +1,49 @@
+<div class="section" style="width:90%;margin:auto;">
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">{{user?.firstName}} {{user?.lastName}}</p>
+                    </article>
+                    <article class="tile is-child notification is-warning">
+                        <p class="title">{{user?.subtitle}}</p>
+                    </article>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child notification is-info">
+                        <figure class="image is-4by3">
+                                <img src="{{serverPath}}/image/photo/{{user?.imageName}}">
+                        </figure>
+                    </article>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                    <div class="content">
+                        {{user?.description}}
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-success">
+                <div class="content">
+                    <p class="subtitle"><span>
+                            <i class="fas fa-info-circle"></i>
+                          </span> Info</p>
+                    <div class="content" style="font-weight: 600;">
+                        <ul>
+                            <li>Username: {{user?.username}}</li>
+                            <li>First Name: {{user?.firstName}}</li>
+                            <li>Last Name: {{user?.lastName}}</li>
+                            <li>Title: {{user?.subtitle}}</li>
+                            <li>Email: {{user?.email}}</li>
+                            <li>Phone: {{user?.phone}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

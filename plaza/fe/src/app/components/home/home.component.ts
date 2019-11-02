@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import 'hammerjs';
 import { AppConst } from 'src/app/constants/appconst';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +15,7 @@ export class HomeComponent implements OnInit {
     private colors = this.shuffle(AppConst.colors);
     private users;
 
-    constructor(private userService: UserService) {
-
+    constructor(private userService: UserService, private router: Router) {
     }
 
     getAllUsers() {
@@ -24,6 +25,10 @@ export class HomeComponent implements OnInit {
           console.log(this.users);
         }
       );
+    }
+
+    onSelect(user: User) {
+      this.router.navigate(['/person', user.username]);
     }
 
     ngOnInit(): void {

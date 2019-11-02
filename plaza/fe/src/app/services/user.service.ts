@@ -20,6 +20,15 @@ export class UserService {
     return this.http.get(url);
   }
 
+  getUserByUsername(username) {
+    const url = this.serverPath + '/user/getUserByUsername';
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    return this.http.post(url, username, httpOptions);
+  }
+
   save(user) {
     const url = this.serverPath + '/user/save';
     const httpOptions = {

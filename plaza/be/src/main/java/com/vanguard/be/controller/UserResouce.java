@@ -26,6 +26,13 @@ public class UserResouce {
         return userList;
     }
 
+    @RequestMapping(value = "/getUserByUsername", method = RequestMethod.POST)
+    public User getUserByUsername(@RequestBody String username) {
+        User user = userService.getUserByUsername(username);
+
+        return user;
+    }
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public User createUser(@RequestBody User user) {
         user = userService.saveUser(user);

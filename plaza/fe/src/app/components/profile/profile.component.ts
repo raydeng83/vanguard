@@ -33,6 +33,12 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user.username = "admin";
+    this.userService.getUserByUsername(this.user.username).subscribe(
+      res => {
+        this.user = <User> res;
+      }
+    )
   }
 
 }

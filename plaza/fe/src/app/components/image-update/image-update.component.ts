@@ -6,17 +6,41 @@ import { AppConst } from 'src/app/constants/appconst';
   templateUrl: './image-update.component.html',
   styleUrls: ['./image-update.component.css']
 })
-export class ImageUpdateComponent{
+export class ImageUpdateComponent {
   private serverPath: string = AppConst.serverPath;
+  private username = "admin";
+
+  //   afuConfig = {
+  //     uploadAPI: {
+  //       url: this.serverPath + "/image/add?username=admin"
+  //     }
+  // };
+
+
 
   afuConfig = {
+    multiple: false,
+    formatsAllowed: ".jpg,.png",
+    maxSize: "1",
     uploadAPI: {
-      url: this.serverPath + "/image/add?username=admin"
+      url: this.serverPath + "/image/add?username=" + this.username,
+      method: "POST"
+    },
+    // theme: "dragNDrop",
+    hideProgressBar: false,
+    hideResetBtn: true,
+    hideSelectBtn: false,
+    replaceTexts: {
+      selectFileBtn: 'Select File',
+      resetBtn: 'Reset',
+      uploadBtn: 'Upload',
+      afterUploadMsg_success: 'Successfully Uploaded !',
+      afterUploadMsg_error: 'Upload Failed !'
     }
-};
-  constructor (){
-   
+  }
+  constructor() {
+
   }
 
-  
+
 }

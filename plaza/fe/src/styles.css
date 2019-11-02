@@ -1,8 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 .border {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
+}
+
+.afu-select-btn {
+  cursor: pointer;
+}
+
+.afu-constraints-info {
+  margin-left: 20px;
+}
+
+.afu-valid-file {
+  margin-left: 20px;
+}
+
+.afu-invalid-file {
+  margin-left: 20px;
+}
+
+.afu-upload-status {
+  margin-left: 20px;
+}
+
+.afu-attach-pin {
+  margin-left: 20px;
 }

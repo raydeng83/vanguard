@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxGalleryModule } from 'ngx-gallery';
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic"
+import { ParticlesModule } from 'angular-particle';
 import { ngfModule } from "angular-file"
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ImageUpdateComponent } from './components/image-update/image-update.component';
 import { ImageService } from './services/image.service';
 import { PersonalComponent } from './components/personal/personal.component';
+import { ParticlesComponent } from './components/particles/particles.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PersonalComponent } from './components/personal/personal.component';
     HomeComponent,
     ProfileComponent,
     ImageUpdateComponent,
-    PersonalComponent
+    PersonalComponent,
+    ParticlesComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { PersonalComponent } from './components/personal/personal.component';
     FormsModule,
     ngfModule,
     FileUploadModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    ParticlesModule
   ],
   providers: [
     UserService,

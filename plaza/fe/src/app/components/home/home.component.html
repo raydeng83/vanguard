@@ -1,37 +1,25 @@
-<!-- <section class="hero is-light ">
-    <div class="hero-body container" style="width:100%;">
-        <div class="has-text-centered">
-            <h3 class="subtitle">
-                Browse Our List of Stars
-            </h3>
-        </div>
-    </div>
-</section> -->
+<div class="section animated bounceInLeft">
+    <nav class="panel is-info">
+        <p class="panel-heading">
+            Star Board
+        </p>
+        <div class="section" style=" margin: auto;min-height: 700px;">
 
-<div class="container">
-    <div class="section animated bounceInLeft">
-        <nav class="panel is-info">
-            <p class="panel-heading">
-                Star Board
-            </p>
-            <div class="section" style=" margin: auto;min-height: 700px;">
-
-                <div class="columns is-multiline">
-                    <div *ngFor="let user of users; index as i" class="column is-one-fourth animated fadeIn delay-1s">
-                        <div class="tile is-ancestor">
-                            <div class="tile is-parent">
-                                <article class="tile is-child notification" [ngClass]="colors[i%6]"
-                                    (click)="onSelect(user)" style="cursor: pointer;">
-                                    <p class="subtitle">{{user.firstName}}</p>
-                                    <figure class="image is-4by3">
-                                        <img src="{{serverPath}}/image/photo/{{user.imageName}}">
-                                    </figure>
-                                </article>
-                            </div>
+            <div class="columns is-multiline">
+                <div *ngFor="let user of users; index as i" class="column is-one-fourth animated fadeIn delay-1s">
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification" [ngClass]="colors[i%6]" (click)="onSelect(user)"
+                                style="cursor: pointer;">
+                                <p class="subtitle">{{user.firstName}}</p>
+                                <figure class="image is-4by4">
+                                    <img src="{{serverPath}}/image/photo/{{user.imageName}}">
+                                </figure>
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </div>

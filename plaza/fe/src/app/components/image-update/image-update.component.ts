@@ -18,7 +18,7 @@ export class ImageUpdateComponent {
 
   afuConfig = {
     multiple: false,
-    formatsAllowed: ".jpg,.png",
+    formatsAllowed: ".jpg,.png,.jpeg",
     maxSize: "1",
     uploadAPI: {
       url: this.serverPath + "/api/image/add?username=" + this.username,

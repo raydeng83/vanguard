@@ -14,7 +14,7 @@ export class UserService {
   getAllUsers() {
     const url = this.serverPath + '/api/user/all';
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
     };
 
     return this.http.get(url);
@@ -23,7 +23,7 @@ export class UserService {
   getUserByUsername(username) {
     const url = this.serverPath + '/api/user/getUserByUsername';
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
     };
 
     return this.http.post(url, username, httpOptions);
@@ -32,7 +32,7 @@ export class UserService {
   save(user) {
     const url = this.serverPath + '/api/user/save';
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
     };
 
     return this.http.post(url, JSON.stringify(user), httpOptions);
@@ -41,7 +41,7 @@ export class UserService {
   checkAMSession() {
     const url = this.serverPath + '/api/user/checkAMSession';
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
     };
 
     return this.http.get(url, httpOptions);

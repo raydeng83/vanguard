@@ -64,7 +64,7 @@ public class UserResouce {
 
     @RequestMapping("/checkAMSession")
     public Map checkAMSession(@CookieValue("iPlanetDirectoryPro") String amCookie) {
-        String uid = "";
+            String uid = "";
 
         JSONObject jo = amService.getSessionInfo(amCookie);
         JSONArray attrArray = (JSONArray) jo.get("attributes");

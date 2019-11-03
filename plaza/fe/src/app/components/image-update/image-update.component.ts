@@ -8,7 +8,7 @@ import { AppConst } from 'src/app/constants/appconst';
 })
 export class ImageUpdateComponent {
    serverPath: string = AppConst.serverPath;
-   username = "admin";
+   username = localStorage.getItem('amSessionUsername');
 
   //   afuConfig = {
   //     uploadAPI: {

@@ -11,46 +11,56 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    private serverPath = AppConst.serverPath;
-    private colors = this.shuffle(AppConst.colors);
-    private users;
+  serverPath = AppConst.serverPath;
+  colors = this.shuffle(AppConst.colors);
+  users;
+  username;
 
-    constructor(private userService: UserService, private router: Router) {
-    }
+  constructor(private userService: UserService, private router: Router) {
+  }
 
-    getAllUsers() {
-      this.userService.getAllUsers().subscribe(
-        res => {
-          this.users = res;
-          console.log(this.users);
-        }
-      );
-    }
-
-    onSelect(user: User) {
-      this.router.navigate(['/person', user.username]);
-    }
-
-    ngOnInit(): void {
-      this.getAllUsers();
-    }
-
-    shuffle(array) {
-      var currentIndex = array.length, temporaryValue, randomIndex;
-    
-      // While there remain elements to shuffle...
-      while (0 !== currentIndex) {
-    
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-    
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+  getAllUsers() {
+    this.userService.getAllUsers().subscribe(
+      res => {
+        this.users = res;
+        console.log(this.users);
       }
-    
-      return array;
+    );
+  }
+
+  onSelect(user: User) {
+    this.router.navigate(['/person', user.username]);
+  }
+
+  ngOnInit(): void {
+    this.getAllUsers();
+
+    this.userService.checkAMSession().subscribe(
+      res => {
+        console.log(res);
+        this.username = res['username'];
+        console.log(this.username);
+        localStorage.setItem('amSessionUsername', this.username);
+      }
+    );
+  }
+
+  shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
     }
+
+    return array;
+  }
 }

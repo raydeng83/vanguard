@@ -21,7 +21,7 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 @RestController
-@RequestMapping("/image")
+@RequestMapping("/api/image")
 public class ImageResource {
     private String imageName;
 

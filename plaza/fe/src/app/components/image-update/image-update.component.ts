@@ -7,8 +7,8 @@ import { AppConst } from 'src/app/constants/appconst';
   styleUrls: ['./image-update.component.css']
 })
 export class ImageUpdateComponent {
-  private serverPath: string = AppConst.serverPath;
-  private username = "admin";
+   serverPath: string = AppConst.serverPath;
+   username = "admin";
 
   //   afuConfig = {
   //     uploadAPI: {
@@ -16,14 +16,12 @@ export class ImageUpdateComponent {
   //     }
   // };
 
-
-
   afuConfig = {
     multiple: false,
     formatsAllowed: ".jpg,.png",
     maxSize: "1",
     uploadAPI: {
-      url: this.serverPath + "/image/add?username=" + this.username,
+      url: this.serverPath + "/api/image/add?username=" + this.username,
       method: "POST"
     },
     // theme: "dragNDrop",

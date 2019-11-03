@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { AppConst } from '../constants/appconst';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
+  private serverPath: string = AppConst.serverPath;
 
   filesToUpload: Array<File>;
 
@@ -12,22 +14,12 @@ export class ImageService {
   }
 
   upload(username) {
-    this.makeFileRequest("http://localhost:8181/image/add?username="+username, [], this.filesToUpload).then((result) => {
+    const url = this.serverPath + '/api/image/add?username=';
+    this.makeFileRequest(url + username, [], this.filesToUpload).then((result) => {
       console.log(result);
     }, (error) => {
       console.error(error);
     });
-  }
-
-  modify(username) {
-    console.log(this.filesToUpload);
-    if (this.filesToUpload!=null) {
-      this.makeFileRequest("http://localhost:8181/image/update/image?username=" + username, [], this.filesToUpload).then((result) => {
-        console.log(result);
-      }, (error) => {
-        console.error(error);
-      });
-    }
   }
 
   fileChangeEvent(fileInput: any){

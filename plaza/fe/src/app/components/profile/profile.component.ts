@@ -9,9 +9,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  private user = new User();
+   user = new User();
 
-  private emptyFirstName = false;
+   emptyFirstName = false;
 
   constructor(private userService: UserService) { }
 
@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user.username = "admin";
+    this.user.username = localStorage.getItem('amSessionUsername');
     this.userService.getUserByUsername(this.user.username).subscribe(
       res => {
         this.user = <User> res;

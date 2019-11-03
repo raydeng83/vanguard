@@ -1,9 +1,9 @@
 <div class="section" style="width: 80%; margin: auto;">
     <div class="columns">
         <div *ngFor="let user of users; index as i" class="column is-one-third" >
-            <div class="tile is-ancestor" (click)="onSelect(user)" style="cursor: pointer;">
+            <div class="tile is-ancestor" >
                 <div class="tile is-parent">
-                    <article class="tile is-child notification" [ngClass]="colors[i%6]">
+                    <article class="tile is-child notification" [ngClass]="colors[i%6]" (click)="onSelect(user)" style="cursor: pointer;">
                         <p class="title">{{user.firstName}} {{user.lastName}}</p>
                         <p class="subtitle">{{user.subtitle}}</p>
                         <figure class="image is-4by3">

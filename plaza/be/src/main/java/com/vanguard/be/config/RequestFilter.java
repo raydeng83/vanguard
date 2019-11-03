@@ -16,37 +16,21 @@ public class RequestFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest) req;
 
-        String origin = request.getHeader("Origin");
-
-        if (origin == null) {
-            response.setHeader("Access-Control-Allow-Origin", "*");
-        } else
-//        if (origin.equals("http://www.anquanjuzi.com") || origin.equals("http://admin.anquanjuzi.com"))
-//        {
-//            response.setHeader("Access-Control-Allow-Origin", origin);
-//        }
-         {
-            response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
-        }
-
-//        response.setHeader("Access-Control-Allow-Origin", "http://www.anquanjuzi.com");
-//        response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
-
+        response.setHeader("Access-Control-Allow-Origin", "http://openig.example.com:8080");
         response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, x-auth-token");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        response.setHeader("Access-Control-Expose-Headers", "Authorization");
 
         if (!(request.getMethod().equalsIgnoreCase("OPTIONS"))) {
             try {
                 chain.doFilter(req, res);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
             System.out.println("Pre-flight");
-            response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
-
+            response.setHeader("Access-Control-Allow-Methods", "POST,GET,DELETE");
             response.setHeader("Access-Control-Max-Age", "3600");
             response.setHeader("Access-Control-Allow-Headers", "authorization, content-type, x-auth-token, " +
                     "access-control-request-headers,access-control-request-method,accept,origin,authorization,x-requested-with");
@@ -55,8 +39,9 @@ public class RequestFilter implements Filter {
 
     }
 
-    public void init(FilterConfig filterConfig) {}
+    public void init(FilterConfig filterConfig) {
+    }
 
-    public void destroy() {}
-
+    public void destroy() {
+    }
 }

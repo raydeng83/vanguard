@@ -9,10 +9,10 @@ import { AppConst } from 'src/app/constants/appconst';
   styleUrls: ['./personal.component.css']
 })
 export class PersonalComponent implements OnInit {
-  private serverPath = AppConst.serverPath;
+   serverPath = AppConst.serverPath;
 
-  private user;
-  private username;
+   user;
+   username;
 
   constructor(private route: ActivatedRoute, private router:Router, private userService: UserService) { 
     this.route.params.forEach((params: Params) => {

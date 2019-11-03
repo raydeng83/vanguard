@@ -12,29 +12,40 @@ export class UserService {
   }
 
   getAllUsers() {
-    const url = this.serverPath + '/user/all';
+    const url = this.serverPath + '/api/user/all';
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
     };
 
     return this.http.get(url);
   }
 
   getUserByUsername(username) {
-    const url = this.serverPath + '/user/getUserByUsername';
+    const url = this.serverPath + '/api/user/getUserByUsername';
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
     };
 
     return this.http.post(url, username, httpOptions);
   }
 
   save(user) {
-    const url = this.serverPath + '/user/save';
+    const url = this.serverPath + '/api/user/save';
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
     };
 
     return this.http.post(url, JSON.stringify(user), httpOptions);
   }
+
+  checkAMSession() {
+    const url = this.serverPath + '/api/user/checkAMSession';
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true
+    };
+
+    return this.http.get(url, httpOptions);
+  }
 }
+
+// http://openam.example.com:18080/openam/identity/json/attributes?subjectid=_klDlVR2iK47cIEFDIezonJi_6E.*AAJTSQACMDEAAlNLABw4V0JHTHhQck1zcTA1Q0NpdllnMXVBeHNkdFE9AAR0eXBlAANDVFMAAlMxAAA.*

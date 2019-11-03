@@ -45,5 +45,3 @@ import { PersonalComponent } from './components/personal/personal.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule);

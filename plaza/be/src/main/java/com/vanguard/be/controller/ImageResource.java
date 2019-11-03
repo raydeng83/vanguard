@@ -2,6 +2,7 @@ package com.vanguard.be.controller;
 
 import com.vanguard.be.model.User;
 import com.vanguard.be.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,9 @@ import java.util.Iterator;
 public class ImageResource {
     private String imageName;
 
+    @Value("${app.resourceLocation}")
+    String resourceLocation;
+
     private final UserService userService;
 
     public ImageResource(UserService userService) {
@@ -37,6 +41,9 @@ public class ImageResource {
             HttpServletResponse response, HttpServletRequest request
     ) {
         try {
+            String path = resourceLocation;
+//            String path = "src/main/resources/static/image/photo/";
+
             User user = userService.getUserByUsername(username);
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
             Iterator<String> it = multipartRequest.getFileNames();
@@ -46,7 +53,7 @@ public class ImageResource {
 
             byte[] bytes = multipartFile.getBytes();
             BufferedOutputStream stream =
-                    new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/photo/" + fileName)));
+                    new BufferedOutputStream(new FileOutputStream(new File(path + fileName)));
             stream.write(bytes);
             stream.close();
 

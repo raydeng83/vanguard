@@ -6,6 +6,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -15,9 +16,12 @@ import java.io.InputStreamReader;
 @Service
 public class AmServiceImpl implements AmService {
 
+    @Value("${app.amServerUrl}")
+    String amServerUrl;
+
     @Override
     public JSONObject getSessionInfo(String amSessionId) {
-        String url = "http://openam.example.com:18080/openam/identity/json/attributes?subjectid=";
+        String url = amServerUrl + "?subjectid=";
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
 

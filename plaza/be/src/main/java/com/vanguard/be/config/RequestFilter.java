@@ -1,5 +1,6 @@
 package com.vanguard.be.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -11,13 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class RequestFilter implements Filter {
+    @Value("${app.allowedRequestOrigin}")
+    String allowedRequestOrigin;
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest) req;
 
-        response.setHeader("Access-Control-Allow-Origin", "http://openig.example.com:8080");
-//        response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+//        response.setHeader("Access-Control-Allow-Origin", "http://openig.example.com:8080");
+        response.setHeader("Access-Control-Allow-Origin", allowedRequestOrigin);
         response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with, x-auth-token");
         response.setHeader("Access-Control-Max-Age", "3600");

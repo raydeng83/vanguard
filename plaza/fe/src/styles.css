@@ -35,6 +35,13 @@
   margin-left: 20px;
 }
 
+.footer {
+  background-color: black;
+  color: aliceblue;
+  padding: 1.5em;
+  opacity: 1 ;
+}
+  
 
 
 /* background effects */

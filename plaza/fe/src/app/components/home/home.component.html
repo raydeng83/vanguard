@@ -1,10 +1,10 @@
-<div class="section" style="width: 80%; margin: auto;">
-    <div class="columns">
+<div class="section" style="width: 80%; margin: auto;min-height: 700px;">
+    <div class="columns is-multiline">
         <div *ngFor="let user of users; index as i" class="column is-one-third" >
             <div class="tile is-ancestor" >
                 <div class="tile is-parent">
                     <article class="tile is-child notification" [ngClass]="colors[i%6]" (click)="onSelect(user)" style="cursor: pointer;">
-                        <p class="title">{{user.firstName}} {{user.lastName}}</p>
+                        <p class="title">{{user.firstName}}</p>
                         <p class="subtitle">{{user.subtitle}}</p>
                         <figure class="image is-4by3">
                             <img src="{{serverPath}}/image/photo/{{user.imageName}}">
@@ -15,3 +15,4 @@
         </div>
     </div>
 </div>
+

@@ -67,6 +67,8 @@ export class ProfileComponent implements OnInit {
         this.user = <User> res;
       }
     )
+
+    this.scrollToTop();
   }
 
 }

@@ -32,17 +32,29 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/person', user.username]);
   }
 
+  scrollToTop() {
+    (function smoothscroll() {
+      var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      if (currentScroll > 0) {
+        window.requestAnimationFrame(smoothscroll);
+        window.scrollTo(0, currentScroll - (currentScroll / 8));
+      }
+    })();
+  }
+
   ngOnInit(): void {
     this.getAllUsers();
 
     this.userService.checkAMSession().subscribe(
       res => {
-        console.log(res);
-        this.username = res['username'];
-        console.log(this.username);
+        if(res != null) {
+          this.username = res['username'];
+        }
         localStorage.setItem('amSessionUsername', this.username);
       }
     );
+
+    this.scrollToTop();
   }
 
   shuffle(array) {

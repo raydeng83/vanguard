@@ -1,6 +1,9 @@
-<div class="section animated bounceInLeft" style="width:90%;margin:auto;min-height: 800px;">
+<div class="section animated bounceInLeft" style="margin:auto;min-height: 1000px;">
     <div class="tile is-ancestor">
-        <div class="tile is-vertical is-8">
+        <div  class="tile is-1" style=" color:darkgray;">
+                <span *ngIf = "!hideNavPrevious" (click)="onNavToPrevious()" style="margin: auto;"><i class="far fa-arrow-alt-circle-left tile-box fa-3x" (click)="onNavToPrevious()"></i></span>
+        </div>
+        <div class="tile is-vertical is-7">
             <div class="tile">
                 <div class="tile is-parent is-vertical">
                     <article class="tile is-child notification is-primary">
@@ -13,7 +16,7 @@
                 <div class="tile is-parent">
                     <article class="tile is-child notification is-info">
                         <figure class="image is-4by4">
-                                <img src="{{serverPath}}/photo/{{user?.imageName}}">
+                            <img src="{{serverPath}}/photo/{{user?.imageName}}">
                         </figure>
                     </article>
                 </div>
@@ -26,12 +29,12 @@
                 </article>
             </div>
         </div>
-        <div class="tile is-parent">
+        <div class="tile is-parent is-3">
             <article class="tile is-child notification is-success">
                 <div class="content">
                     <p class="subtitle"><span>
                             <i class="fas fa-info-circle"></i>
-                          </span> Info</p>
+                        </span> Info</p>
                     <div class="content" style="font-weight: 600;">
                         <ul>
                             <li>Username: {{user?.username}}</li>
@@ -45,5 +48,9 @@
                 </div>
             </article>
         </div>
+        <div  class="tile is-1" style="color:darkgray;">
+            <span *ngIf = "!hideNavNext" (click)="onNavToNext()" style="margin: auto;"><i class="far fa-arrow-alt-circle-right tile-box fa-3x" ></i></span>
+        </div>
     </div>
 </div>
+<app-scroll-top></app-scroll-top>

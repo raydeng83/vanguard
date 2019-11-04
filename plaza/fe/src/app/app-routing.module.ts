@@ -26,7 +26,8 @@ const routes: Routes = [
   },
   {
     path: 'person/:username',
-    component: PersonalComponent
+    component: PersonalComponent,
+    data: { state: 'home' }
   }
 ];
 

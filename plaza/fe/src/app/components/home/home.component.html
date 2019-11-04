@@ -1,12 +1,11 @@
 <div class="section animated bounceInLeft">
     <nav class="panel is-info">
         <p class="panel-heading">
-            Board
+            Board | <span>Welcome, {{username}}</span>
         </p>
         <div class="section" style=" margin: auto;min-height: 1000px;">
-
             <div class="columns is-multiline">
-                <div *ngFor="let user of users; index as i" class="column is-one-fourth animated fadeIn delay-1s">
+                <div *ngFor="let user of users; index as i" class="column is-one-quarter animated fadeIn delay-1s">
                     <div class="tile is-ancestor ">
                         <div class="tile is-parent tile-box">
                             <article class="tile is-child notification" [ngClass]="colors[i%6]" (click)="onSelect(user)"

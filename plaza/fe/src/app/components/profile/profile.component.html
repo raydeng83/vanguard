@@ -1,11 +1,11 @@
 <div class="section  animated bounceInLeft" style="width: 70%; margin:auto;min-height: 1000px;">
     <div class="box">
         <div *ngIf="badInfo" class="notification is-warning">
-            <button class="delete" (click)="onClearMessage()"></button>
+            <button class="delete" (click)="onClearErrorMessage()"></button>
             All fields are required.
         </div>
         <div *ngIf="submitted" class="notification is-info">
-                <button class="delete" (click)="onClearMessage()"></button>
+                <button class="delete" (click)="onClearSuccessMessage()"></button>
                 Submitted Successfully.
             </div>
         <form (ngSubmit)="onSubmit()">

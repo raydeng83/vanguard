@@ -52,6 +52,10 @@ public class UserResouce {
         }
         User user = userService.getUserByUsername(username);
 
+        if (user == null) {
+            user = new User();
+        }
+
         return user;
     }
 

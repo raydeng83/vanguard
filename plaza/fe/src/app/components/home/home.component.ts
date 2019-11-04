@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
           this.username = res['username'];
         }
         localStorage.setItem('amSessionUsername', this.username);
+        console.log("Set username in localstorage: " + localStorage.getItem('amSessionUsername'));
       }
     );
 

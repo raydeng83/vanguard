@@ -18,6 +18,7 @@ import { ImageUpdateComponent } from './components/image-update/image-update.com
 import { ImageService } from './services/image.service';
 import { PersonalComponent } from './components/personal/personal.component';
 import { ParticlesComponent } from './components/particles/particles.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ParticlesComponent } from './components/particles/particles.component';
     ProfileComponent,
     ImageUpdateComponent,
     PersonalComponent,
-    ParticlesComponent
+    ParticlesComponent,
+    ScrollTopComponent
   ],
   imports: [
     BrowserModule,

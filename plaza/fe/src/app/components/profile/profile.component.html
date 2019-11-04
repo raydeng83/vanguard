@@ -1,5 +1,13 @@
-<div class="section  animated bounceInLeft" style="width: 70%; margin:auto;min-height: 700px;">
+<div class="section  animated bounceInLeft" style="width: 70%; margin:auto;min-height: 800px;">
     <div class="box">
+        <div *ngIf="badInfo" class="notification is-warning">
+            <button class="delete" (click)="onClearMessage()"></button>
+            All fields are required.
+        </div>
+        <div *ngIf="submitted" class="notification is-info">
+                <button class="delete" (click)="onClearMessage()"></button>
+                Submitted Successfully.
+            </div>
         <form (ngSubmit)="onSubmit()">
             <div class="field">
                 <label class="label">*First Name</label>
@@ -59,9 +67,10 @@
                     <button class="button is-link">Submit</button>
                 </div>
                 <div class="control">
-                    <button class="button is-link is-light">Cancel</button>
+                    <button class="button is-link is-light" routerLink="/home" routerLinkActive="active">Cancel</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<app-scroll-top></app-scroll-top>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,7 @@ export class ProfileComponent implements OnInit {
   badInfo = false;
   submitted = false;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private helperService: HelperService) {
     // init user
     this.user.username = localStorage.getItem('amSessionUsername');
     this.user.firstName = '';
@@ -42,6 +43,8 @@ export class ProfileComponent implements OnInit {
       }, 10000);
       return;
     }
+
+    this.helperService.checkAMSession();
 
     let username = localStorage.getItem('amSessionUsername');
     this.user.username = username;
@@ -78,7 +81,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.helperService.checkAMSession();
 
     this.userService.getUserByUsername(this.user.username).subscribe(
       res => {

@@ -4,6 +4,7 @@ import { AppConst } from 'src/app/constants/appconst';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   users;
   username;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private helperService: HelperService) {
   }
 
   getAllUsers() {
@@ -44,16 +45,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
-
-    this.userService.checkAMSession().subscribe(
-      res => {
-        if(res != null) {
-          this.username = res['username'];
-        }
-        localStorage.setItem('amSessionUsername', this.username);
-        console.log("Set username in localstorage: " + localStorage.getItem('amSessionUsername'));
-      }
-    );
+    
+    this.helperService.checkAMSession();
 
     this.scrollToTop();
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppConst } from 'src/app/constants/appconst';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-image-update',
@@ -36,8 +37,12 @@ export class ImageUpdateComponent {
       afterUploadMsg_error: 'Upload Failed !'
     }
   }
-  constructor() {
+  constructor(private helperService: HelperService) {
 
+  }
+
+  postProcessingUpload($event) {
+    console.log($event);
   }
 
   scrollToTop() {
@@ -51,6 +56,8 @@ export class ImageUpdateComponent {
   }
 
   ngOnInit(): void {
+    this.helperService.checkAMSession();
+
     this.scrollToTop();
   }
 }

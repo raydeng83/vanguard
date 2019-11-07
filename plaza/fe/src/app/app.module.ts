@@ -19,6 +19,7 @@ import { ImageService } from './services/image.service';
 import { PersonalComponent } from './components/personal/personal.component';
 import { ParticlesComponent } from './components/particles/particles.component';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { HelperService } from './services/helper.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
   ],
   providers: [
     UserService,
-    ImageService
+    ImageService,
+    HelperService
   ],
   bootstrap: [AppComponent]
 })

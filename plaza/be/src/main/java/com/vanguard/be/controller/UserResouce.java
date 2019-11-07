@@ -5,13 +5,11 @@ import com.vanguard.be.service.AmService;
 import com.vanguard.be.service.UserService;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @RestController
 @RequestMapping("/api/user")
@@ -68,9 +66,27 @@ public class UserResouce {
 
     @RequestMapping("/checkAMSession")
     public Map checkAMSession(@CookieValue("iPlanetDirectoryPro") String amCookie) {
-            String uid = "";
+        String uid = "";
+        Map<String, String> map = new HashMap();
+
+        AtomicBoolean exceptionState = new AtomicBoolean(false);
 
         JSONObject jo = amService.getSessionInfo(amCookie);
+
+        Iterator<String> keys = jo.keys();
+
+        while(keys.hasNext()) {
+            String key = keys.next();
+            if (key.equalsIgnoreCase("exception")) {
+                JSONObject o = (JSONObject) jo.get(key);
+                if (o.get("name").toString().equalsIgnoreCase("com.sun.identity.idsvcs.TokenExpired")) {
+                    map.put("state", "failed");
+                    map.put("exception", "invalidToken");
+                    return map;
+                }
+            }
+        }
+
         JSONArray attrArray = (JSONArray) jo.get("attributes");
 
         for (Object o : attrArray) {
@@ -81,7 +97,8 @@ public class UserResouce {
             }
         }
 
-
-        return Collections.singletonMap("username", uid);
+        map.put("username", uid);
+        map.put("state", "success");
+        return map;
     }
 }

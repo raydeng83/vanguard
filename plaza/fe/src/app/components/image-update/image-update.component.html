@@ -2,7 +2,7 @@
       <div class=" content box border">
             <h3 class="title is-4" style="margin-left: 10px;">Upload Your Image</h3>
 
-            <angular-file-uploader class="file" [config]="afuConfig">
+            <angular-file-uploader class="file" [config]="afuConfig" (ApiResponse)="postProcessingUpload($event)">
 
             </angular-file-uploader>
 

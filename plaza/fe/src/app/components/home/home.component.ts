@@ -46,7 +46,21 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllUsers();
     
-    this.helperService.checkAMSession();
+    this.userService.checkAMSession().subscribe(
+      res => {
+        if(res != null) {
+          if(res['state'] == 'success') {
+            this.username = res['username'];
+            localStorage.setItem('amSessionUsername', this.username);
+            console.log("Set username in localstorage: " + localStorage.getItem('amSessionUsername'));
+          } else if (res['state'] == 'failed') {
+            if(res['exception'] == 'invalidToken') {
+              location.reload();
+            }
+          }
+        }
+      }
+    );
 
     this.scrollToTop();
   }

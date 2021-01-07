@@ -20,7 +20,7 @@ public class RequestFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
 
 //        response.setHeader("Access-Control-Allow-Origin", "http://openig.example.com:8080");
-        response.setHeader("Access-Control-Allow-Origin", allowedRequestOrigin);
+        response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
         response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with, x-auth-token");
         response.setHeader("Access-Control-Max-Age", "3600");

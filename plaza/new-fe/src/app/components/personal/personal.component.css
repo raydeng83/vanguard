@@ -1,0 +1,11 @@
+/* tile zoom effect */
+
+.tile-box  {
+  transition: all 0.3s;
+  transform: scale(1);
+}
+
+.tile-box:hover  {
+  cursor: pointer;
+  transform: scale(1.2);
+}

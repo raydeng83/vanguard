@@ -1,0 +1,25 @@
+<div class="section animated bounceInLeft">
+  <nav class="panel is-info">
+    <p class="panel-heading">
+      Board | <span>Welcome, {{username}}</span>
+    </p>
+    <div class="section" style=" margin: auto;min-height: 1000px;">
+      <div class="columns is-multiline">
+        <div *ngFor="let user of users; index as i" class="column is-one-quarter animated fadeIn delay-1s">
+          <div class="tile is-ancestor ">
+            <div class="tile is-parent tile-box">
+              <article class="tile is-child notification" [ngClass]="colors[i%6]" (click)="onSelect(user)"
+                       style="cursor: pointer;">
+                <p class="subtitle">{{user.firstName}}</p>
+                <figure class="image is-4by4">
+                  <img src="{{serverPath}}/photo/{{user.imageName}}">
+                </figure>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<app-scroll-top></app-scroll-top>
